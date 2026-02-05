@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { faker } from "@faker-js/faker";
 import FakeDarkModeToggle from "./FakeDarkModeToggle";
 import { usePosts, PostProvider } from "./PostContext";
@@ -71,14 +71,14 @@ function Results() {
   return <p>🚀 {posts.length} posts found</p>;
 }
 
-function Main() {
+const Main = memo(function Main() {
   return (
     <main>
       <FormAddPost />
       <Posts />
     </main>
   );
-}
+});
 
 function Posts() {
   return (
